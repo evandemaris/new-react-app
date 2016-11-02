@@ -1,4 +1,4 @@
-    this.state = {
+let weekData = {
       week1: [
         {
           title: 'JavaScript Assessment',

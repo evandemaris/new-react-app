@@ -15,7 +15,12 @@
 }
 
 .App-intro {
+  background-color: #999;
   font-size: large;
+  width: 15rem;
+  text-align: left;
+  margin-right: auto;
+  padding: 2rem;
 }
 
 @keyframes App-logo-spin {

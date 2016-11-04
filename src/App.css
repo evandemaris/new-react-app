@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+a:link {color: #444;}
+a:visited {box-shadow: 2px 2px 2px black; color: #bbb;}
+a:hover {color: #fff;}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -16,7 +20,7 @@
 
 .App-intro {
   background-color: #999;
-  font-size: large;
+  font-size: small;
   width: 15rem;
   text-align: left;
   margin-right: auto;
@@ -26,4 +30,8 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+h1 {
+  display: block; background-color: white; width: 100%; padding: 1rem; margin-left: -2rem;
 }

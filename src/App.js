@@ -29,7 +29,7 @@ let weeks = {
           link: 'http://tech.co/dc-is-the-top-city-for-women-in-tech-2016-02',
         },
         {
-          title: "JavaScript&#59 Understanding the Weird Parts",
+          title: "JavaScript: Understanding the Weird Parts",
           link: 'https://www.udemy.com/understand-javascript/?couponCode=OCT1202&siteID=Kzz30XxWgII-loSkKDchAkcHj_nnwiIBHQ&LSNPUBID=Kzz30XxWgII',
         },
         {
@@ -116,21 +116,23 @@ class Week extends Component {
     let renderMe = []
     let lastWeek;
     let thisWeek = this.props.week;
-    this.props.content.forEach(
-      function(a) {
+    this.props.content.map(function(a) {
+        let warning=function(arg){alert('"' + a.title + '"' + ' was clicked');}
         if(thisWeek !== lastWeek) {
-          renderMe.push(
-            <h1>Week {thisWeek}</h1>);
-            lastWeek=thisWeek;
+          renderMe.push(<h1>Week {thisWeek}</h1>);
+          lastWeek=thisWeek;
         }
-      renderMe.push(<p><a href={a.link}>{a.title}</a></p>);
+        renderMe.push(
+          <div>
+            <p><a href={a.link}>{a.title}</a></p>
+            <p><button onClick={warning}>Click Me</button></p>
+          </div>
+        );
       }
     );
     return(<div>{renderMe}</div>);
   }
 }
-
-
 
 class App extends Component {
   render() {

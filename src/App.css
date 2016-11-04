@@ -32,6 +32,15 @@ a:hover {color: #fff;}
   to { transform: rotate(360deg); }
 }
 
+.EditButton {
+  font-size: .5rem;
+  width: 1.5rem;
+  margin-left: 1rem;
+  border-radius: 60%;
+  background-color: #466;
+  color: white;
+}
+
 h1 {
   display: block; background-color: white; width: 100%; padding: 1rem; margin-left: -2rem;
 }

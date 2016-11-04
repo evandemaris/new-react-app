@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Week from './Week.js';
+import Header from './Header.js';
+
+let headline = "Welcome to React";
 
 let weeks = {
       week1: [
@@ -111,45 +115,29 @@ let weeks = {
       ],
     }
 
-class Week extends Component {
-  render() {
-    let renderMe = []
-    let lastWeek;
-    let thisWeek = this.props.week;
-    this.props.content.map(function(a) {
-        let warning=function(arg){alert('"' + a.title + '"' + ' was clicked');}
-        if(thisWeek !== lastWeek) {
-          renderMe.push(<h1>Week {thisWeek}</h1>);
-          lastWeek=thisWeek;
-        }
-        renderMe.push(
-          <div>
-            <p><a href={a.link}>{a.title}</a></p>
-            <p><button onClick={warning}>Click Me</button></p>
-          </div>
-        );
-      }
-    );
-    return(<div>{renderMe}</div>);
-  }
-}
 
 class App extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {weeks:weeks, headline:headline};
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <Header headline={this.state.headline}/>
         </div>
         <div className="App-intro">
-          <Week content={weeks.week1} week="1"/>
-          <Week content={weeks.week2} week="2"/>
-          <Week content={weeks.week3} week="3"/>
+          <Week content={this.state.weeks.week1} week="1"/>
+          <Week content={this.state.weeks.week2} week="2"/>
+          <Week content={this.state.weeks.week3} week="3"/>
         </div>
       </div>
     );
   }
+
 }
 
 export default App;

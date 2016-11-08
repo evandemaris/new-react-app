@@ -11,6 +11,10 @@ a:hover {color: #fff;}
   height: 80px;
 }
 
+.App-logo:hover {
+  animation: App-logo-spin-reverse infinite 3s linear;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
@@ -19,6 +23,7 @@ a:hover {color: #fff;}
 }
 
 .App-intro {
+  float: left;
   background-color: #999;
   font-size: small;
   width: 15rem;
@@ -30,6 +35,11 @@ a:hover {color: #fff;}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes App-logo-spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
 .EditButton {

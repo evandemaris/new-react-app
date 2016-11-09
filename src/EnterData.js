@@ -3,17 +3,27 @@ import React, { Component } from 'react';
 class EnterData extends Component {
   constructor() {
     super();
-    this.state={inputValue:"Car phone"}
+    this.state={descripValue:"", urlValue:""}
   }
-  valueUpdate(a) {
-    this.setState({inputValue:a.target.value});
+  descripUpdate(e) {
+    this.setState({descripValue:e.target.value});
   }
+  urlUpdate(e) {
+    this.setState({urlValue:e.target.value});
+  }
+  submitHandler(e) {
+    e.preventDefault();
+    this.props.addData({title:this.state.descripValue, link:this.state.urlValue,});
+  }
+
   render() {
-    let clickHandler = function(e) {e.preventDefault(); this.props.addData(e.target.value);}
     return(
       <form>
-        <input value={this.state.inputValue} onChange={this.valueUpdate.bind(this)}/>
-        <button onClick={clickHandler.bind(this)}>Add your data</button>
+      <label htmlFor="title">Description of link:</label>
+        <input value={this.state.descripValue} onChange={this.descripUpdate.bind(this)} id="title"/>
+        <label htmlFor="url">Link url:</label>
+        <input value={this.state.urlValue} onChange={this.urlUpdate.bind(this)} id="url"/>
+        <button onClick={this.submitHandler.bind(this)}>Add that link!</button>
       </form>
     );
   }

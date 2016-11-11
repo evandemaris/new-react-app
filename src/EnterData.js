@@ -7,17 +7,21 @@ class EnterData extends Component {
   }
 
   descripUpdate(e) {
-    this.setState({descripValue:e.target.value});
+      this.setState({descripValue:e.target.value});
   }
   urlUpdate(e) {
     this.setState({urlValue:e.target.value});
   }
   submitHandler(e) {
     e.preventDefault();
-    this.props.addData({title:this.state.descripValue, link:this.state.urlValue,},('week' + this.props.week));
+    if(this.state.urlValue.includes("http")){
+        this.props.addData({title:this.state.descripValue, link:this.state.urlValue,},('week' + this.props.week));
+    } else {
+        this.props.addData({title:this.state.descripValue, link:('http://'+this.state.urlValue),},('week' + this.props.week));
+    }
+
   }
   render() {
-    //it is the right this.state.week here
     return(
       <form>
       <label htmlFor="title">Description of link:</label><br/>

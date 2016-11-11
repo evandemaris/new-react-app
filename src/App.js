@@ -15,9 +15,9 @@ class App extends Component {
   this.state = {weeks:weeks, headline:headline, addedData:[]};
   this.addData = this.addData.bind(this);
   }
-  addData(a){
-    this.setState({addedData:this.state.addedData.concat([a])});
-
+  addData(data,week){
+    this.state.weeks[week]=this.state.weeks[week].concat([data]);
+    this.setState({addedData:this.state.weeks});
     window.setTimeout(()=>console.log(this.state.addedData), 1000);
   }
   render() {
@@ -28,12 +28,11 @@ class App extends Component {
           <Header headline={this.state.headline}/>
         </div>
         <div className="App-intro">
-          <Week content={this.state.weeks.week1} week="1"/>
-          <Week content={this.state.weeks.week2} week="2"/>
-          <Week content={this.state.weeks.week3} week="3"/>
+          <Week content={this.state.weeks.week1} week="1" addData={this.addData}/>
+          <Week content={this.state.weeks.week2} week="2" addData={this.addData}/>
+          <Week content={this.state.weeks.week3} week="3" addData={this.addData}/>
         </div>
         <div className="Main-App">
-          <EnterData addData={this.addData}/>
         </div>
       </div>
     );

@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class EnterData extends Component {
   constructor() {
     super();
-    this.state={descripValue:"", urlValue:""}
+    this.state={descripValue:"", urlValue:"",}
   }
+
   descripUpdate(e) {
     this.setState({descripValue:e.target.value});
   }
@@ -13,15 +14,15 @@ class EnterData extends Component {
   }
   submitHandler(e) {
     e.preventDefault();
-    this.props.addData({title:this.state.descripValue, link:this.state.urlValue,});
+    this.props.addData({title:this.state.descripValue, link:this.state.urlValue,},('week' + this.props.week));
   }
-
   render() {
+    //it is the right this.state.week here
     return(
       <form>
-      <label htmlFor="title">Description of link:</label>
-        <input value={this.state.descripValue} onChange={this.descripUpdate.bind(this)} id="title"/>
-        <label htmlFor="url">Link url:</label>
+      <label htmlFor="title">Description of link:</label><br/>
+        <input value={this.state.descripValue} onChange={this.descripUpdate.bind(this)} id="title"/><br/>
+        <label htmlFor="url">Link url:</label><br/>
         <input value={this.state.urlValue} onChange={this.urlUpdate.bind(this)} id="url"/>
         <button onClick={this.submitHandler.bind(this)}>Add that link!</button>
       </form>

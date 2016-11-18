@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Week from './Week.js';
 import Header from './Header.js';
-import EnterData from './EnterData.js';
 import Data from './database/data.js';
 import AddContainer from './AddContainer.js';
 
@@ -19,22 +18,24 @@ class App extends Component {
   }
 
   addBookmarkToState(data,week){
-    this.state.data[week]=this.state.data[week].concat([data]);
-    this.setState({data:this.state.data});
-    window.setTimeout(()=>console.log(this.state.addedData), 1000);
+    let dataref = this.state.data;
+    dataref[week]=dataref[week].concat([data]);
+    this.setState({data:dataref});
+    //window.setTimeout(()=>console.log(this.state.addedData), 1000);
   }
 
   addWeekToState(weekName){
-    this.state.data[weekName] = [];
-    console.log(this.state.data);
-    this.setState({data:this.state.data});
+      let dataref = this.state.data;
+      dataref[weekName] = [];
+      this.setState({data:dataref});
   }
 
   render() {
     let Data = this.state.data;
     let AddData = this.addBookmarkToState;
     let returnArray = []
-    Object.keys(this.state.data).map(function(a){returnArray.push(<Week content={Data[a]} week={a} addData={AddData}/>);});
+    let key=0;
+    Object.keys(this.state.data).map(function(a){key++; returnArray.push(<Week key={key} content={Data[a]} week={a} addData={AddData}/>); return null;});
 
     return (
       <div className="App">

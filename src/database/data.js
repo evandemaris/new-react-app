@@ -25,7 +25,7 @@ let Data = {
           link: 'http://tech.co/dc-is-the-top-city-for-women-in-tech-2016-02',
         },
         {
-          title: "JavaScript: Understanding the Weird Parts",
+          title: "JavaScript, Understanding the Weird Parts",
           link: 'https://www.udemy.com/understand-javascript/?couponCode=OCT1202&siteID=Kzz30XxWgII-loSkKDchAkcHj_nnwiIBHQ&LSNPUBID=Kzz30XxWgII',
         },
         {

@@ -1,5 +1,5 @@
 let Data = {
-      week1: [
+      "Week 1": [
         {
           title: 'JavaScript Assessment',
           link: 'https://github.com/rmurphey/js-assessment',
@@ -41,7 +41,7 @@ let Data = {
           link: 'https://www.youtube.com/watch?v=AfWYO8t7ed4',
         },
       ],
-      week2: [
+      "Week 2": [
         {
           title: 'AirBnb Styleguide',
           link: 'https://github.com/airbnb/javascript',
@@ -67,7 +67,7 @@ let Data = {
           link: '',
         },
       ],
-      week3: [
+      "Week 3": [
         {
           title: 'Thinking in React',
           link: 'https://facebook.github.io/react/docs/thinking-in-react.html',
@@ -106,4 +106,6 @@ let Data = {
         },
       ],
     }
+
+
   export default Data;
